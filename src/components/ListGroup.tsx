@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
-
-const ListGroup = () => {
-  const items=[
-    { "rank": 1, "name": "Alice", "score": 2500 },
-    { "rank": 2, "name": "Bob", "score": 2300 },
-    { "rank": 3, "name": "Charlie", "score": 2100 },
-    { "rank": 4, "name": "Diana", "score": 1900 },
-    { "rank": 5, "name": "Eve", "score": 1700 },
-  ]
  
+interface Props{
+    items: string[];
+    heading: string;
+}
+
+const ListGroup = ({items,heading}: Props) => {
   //Hook
   const [selectedIndex,setSelectedIndex]= useState(-1)
   
@@ -24,7 +21,7 @@ const ListGroup = () => {
    
   return (
     <>
-      <h1>Top Scores</h1>
+      <h1>{heading}</h1>
 {getMessage()}
 <table className="table table-hover">
   <thead>

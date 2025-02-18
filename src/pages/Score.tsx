@@ -2,6 +2,14 @@ import ListGroup from '@/components/ListGroup'
 import React from 'react'
 
 const Score = () => {
+  const items=[
+      { "rank": 1, "name": "Alice", "score": 2500 },
+      { "rank": 2, "name": "Bob", "score": 2300 },
+      { "rank": 3, "name": "Charlie", "score": 2100 },
+      { "rank": 4, "name": "Diana", "score": 1900 },
+      { "rank": 5, "name": "Eve", "score": 1700 },
+    ]
+   
   return (
     <div>
       
@@ -14,8 +22,7 @@ const Score = () => {
       </div>
       </div> */}
 
-      <ListGroup/>
-     
+      <ListGroup items={items} heading='Top Scores'/>
      
     </div>
   )
