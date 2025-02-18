@@ -16,6 +16,7 @@ const Score = () => {
 
       <ListGroup/>
      
+     
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ListGroup = () => {
   const items=[
@@ -9,21 +9,24 @@ const ListGroup = () => {
     { "rank": 5, "name": "Eve", "score": 1700 },
   ]
  
+  //Hook
+  const [selectedIndex,setSelectedIndex]= useState(-1)
+  
+
   
   const getMessage= ()=>{
     return items.length===0 && <p>No item found </p> 
   }
 
-  const handleClick=(e:MouseEvent)=>{
-     console.log(e);
-     
+  const handleClick=(i)=>{
+     setSelectedIndex(i)
   }
    
   return (
     <>
       <h1>Top Scores</h1>
 {getMessage()}
-<table className="table">
+<table className="table table-hover">
   <thead>
     <tr>
       <th scope="col">Rank</th>
@@ -33,9 +36,9 @@ const ListGroup = () => {
   </thead>
   <tbody>
         {
-            items.map((item)=>(
-                <tr className=''
-                 onClick={handleClick}
+            items.map((item,index)=>(
+                <tr className={selectedIndex===index? 'table-active':''}
+                 onClick={()=>handleClick(index)}
                  key={item.rank}>
                 <td>{item.rank}</td>
                 <td>{item.name}</td>
