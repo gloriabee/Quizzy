@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './componen
 import { Button } from "@/components/ui/button";
 import Score from './pages/Score'; // Import the Score component
 import Message from './components/Message';
+import Alert from './components/Alert';
 
 function App() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <>
-  
+      <Alert>Hello <span>World</span></Alert>
       <h1 className='font-bold text-3xl mb-4'>QuizWhirl</h1>
       <p className='text-gray-400 mb-4'>
         Test your knowledge and compete with others!
@@ -57,5 +58,6 @@ export default function AppWrapper() {
         <Route path="/score" element={<Score />} />
       </Routes>
     </Router>
+    
   );
 }

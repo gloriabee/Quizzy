@@ -10,6 +10,9 @@ const Score = () => {
       { "rank": 5, "name": "Eve", "score": 1700 },
     ]
    
+  const handleSelectItem= (item: string) => {
+    console.log(item)
+  }
   return (
     <div>
       
@@ -22,7 +25,7 @@ const Score = () => {
       </div>
       </div> */}
 
-      <ListGroup items={items} heading='Top Scores'/>
+      <ListGroup items={items} heading='Top Scores' onSelectItem={handleSelectItem}/>
      
     </div>
   )

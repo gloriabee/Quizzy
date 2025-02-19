@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 interface Props{
     items: string[];
     heading: string;
+    onSelectItem: (item:string) => void;
 }
 
-const ListGroup = ({items,heading}: Props) => {
+const ListGroup = ({items,heading, onSelectItem}: Props) => {
   //Hook
   const [selectedIndex,setSelectedIndex]= useState(-1)
   
