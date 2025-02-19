@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './components/ui/card';
-import { Button } from "@/components/ui/button";
 import Score from './pages/Score'; // Import the Score component
-import Message from './components/Message';
 import Alert from './components/Alert';
+import Button from './components/Button';
 
 function App() {
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ function App() {
         </Card>
       </div>
 
-      <Button className='m-4' onClick={handleGoToDashboard}>Go to Dashboard</Button>
+      <Button color='primary' onClick={handleGoToDashboard}>Go to Dashboard</Button>
     </>
   );
 }
