@@ -4,8 +4,10 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './componen
 import Score from './pages/Score'; // Import the Score component
 import Alert from './components/Alert';
 import Button from './components/Button';
+import { useState } from 'react';
 
 function App() {
+  const [alertVisible,setAlertVisible]=useState(false)
   const navigate = useNavigate();
 
   const handleGoToDashboard = () => {
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Alert>Hello <span>World</span></Alert>
+      {alertVisible && <Alert onClose={()=> setAlertVisible(false)}>My Alert</Alert>}
       <h1 className='font-bold text-3xl mb-4'>QuizWhirl</h1>
       <p className='text-gray-400 mb-4'>
         Test your knowledge and compete with others!
@@ -43,7 +45,7 @@ function App() {
         </Card>
       </div>
 
-      <Button color='primary' onClick={handleGoToDashboard}>Go to Dashboard</Button>
+      <Button color='primary' onClick={()=> setAlertVisible(true)}>Go to Dashboard</Button>
     </>
   );
 }
