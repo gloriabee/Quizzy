@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "commit":"cz"
+    "commit": "cz-customizable"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
@@ -16,6 +16,7 @@
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -43,8 +44,11 @@
     "vite": "^6.1.0"
   },
   "config": {
-  "commitizen": {
-    "path": "node_modules/cz-customizable"
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.cjs"
+    }
   }
-}
 }
