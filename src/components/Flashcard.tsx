@@ -1,32 +1,24 @@
-import React, { useState } from 'react'
-import {motion} from 'framer-motion'
-import { Card, CardContent } from './ui/card'
+import React from 'react'
+import { Card, CardContent, CardTitle } from './ui/card'
+import EditModal from './EditModal'
+import Button from 'react-bootstrap/esm/Button'
+import { MdDelete } from "react-icons/md";
 
-const Flashcard = ({title,description}) => {
-    const [isFlipped,setIsFilpped]= useState(false)
-
+const Flashcard = () => {
   return (
-    <div className="container flex justify-center items-center my-auto">
-  
-           <motion.div 
-           onClick={()=>setIsFilpped(!isFlipped)}
-           style={{
-               perspective: '200px',
-               position:'relative',
-               cursor:'pointer'}}
-           animate={{rotateX: isFlipped? 0:360}}
-           transition={{duration:1}}>
-       
-           
-           <Card style={{backfaceVisibility:'hidden'}} className='p-4'>
-             <CardContent>
-             {isFlipped?description:<h3>{title}</h3>}
-             </CardContent>
-           </Card>
-       
-           </motion.div>
+    <div>
+      <Card>
+        <CardTitle className='flex justify-end p-2 gap-1'>
+          <EditModal/>
+          <div className="space-x-5"></div>
+          <Button variant='danger'><MdDelete /></Button>
+        </CardTitle>
+        <CardContent className='flex flex-col items-center justify-center h-full p-6'>
+          <h3 className='text-2xl font-semibold text-center'>Biology</h3>
+          <p className='text-sm text-muted-foreground mt-2'>Click to flip</p>
+        </CardContent>
+      </Card>
     </div>
- 
   )
 }
 
