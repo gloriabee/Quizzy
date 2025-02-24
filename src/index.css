@@ -3,3 +3,20 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+.flashcard {
+    @apply relative w-full h-[300px] cursor-pointer perspective-[1000px];
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .flashcard.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .flashcard-face {
+    @apply absolute w-full h-full backface-hidden;
+  }
+  
+  .flashcard-back {
+    transform: rotateY(180deg);
+  }
