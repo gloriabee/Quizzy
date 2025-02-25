@@ -25,7 +25,16 @@ const App = () => {
       }
     ]
   )
-   
+
+  function updateEmployee(id,name,role){
+   const updatedEmployees=employees.map((emp)=>{
+      if(id==emp.id){
+        return {...emp}
+      }
+      return emp;
+    })
+    setEmployees(updatedEmployees)
+  }
   return (
     
       <div className="container 
@@ -38,15 +47,12 @@ const App = () => {
       
       {
         employees.map((e)=> {return (
-          
-            <Employee key={e.id} name={e.name} role={e.role} img={e.image}/>
-        
+            <Employee key={e.id} name={e.name} role={e.role} img={e.image} updateEmployee={updateEmployee}/>
         )
       }
         )
       }
        
-      
       </div>
       
     
