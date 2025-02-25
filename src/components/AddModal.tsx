@@ -2,7 +2,12 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function AddModal() {
+function AddModal(props) {
+  const [title,setTitle]=useState('')
+  const [definiton,setDefinition]=useState('')
+  // const [category,setCategory]=useState('')
+
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,15 +34,19 @@ function AddModal() {
           id='addModal'
           onSubmit={(e)=>{
             e.preventDefault();
-            console.log('Added successfully')
+            props.addFlashcard(title,definiton)
             handleClose();
           }}>
       <div>
-        <label className="block text-sm/6 font-medium text-gray-900">Title</label>
+        <label className="block text-sm/6 font-medium text-gray-900"
+        htmlFor='title'>Title</label>
         <div className="mt-2">
           <input type="text"
            name="title" 
            id="title"
+           onChange={(e)=>{
+            setTitle(e.target.value)
+           }}
             required 
             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
         </div>
@@ -45,14 +54,18 @@ function AddModal() {
 
       <div>
         <div className="flex items-center justify-between">
-          <label className="block text-sm/6 font-medium text-gray-900">Definition</label>
+          <label htmlFor='definition'
+           className="block text-sm/6 font-medium text-gray-900">Definition</label>
         </div>
         <div className="mt-2">
         <textarea 
-        name="about"
-         id="about" 
+        name="definition"
+         id="definition" 
          rows="3" 
-         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"></textarea>
+         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+         onChange={(e)=>{
+          setDefinition(e.target.value)
+         }}></textarea>
         </div>
       </div>
 
@@ -75,7 +88,9 @@ function AddModal() {
       </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" form='addModal' type='submit'>
+          <Button variant="primary"
+           form='addModal' 
+           type='submit'>
             Create Flashcard
           </Button>
         </Modal.Footer>

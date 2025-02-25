@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Flashcard from './components/Flashcard';
 import NavMenu from './components/NavMenu';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const App = () => {
@@ -33,11 +34,20 @@ const App = () => {
    setDatas(updatedFlashcards)
   }
 
+  function addFlashcard(title,definition){
+    const newData= {
+      id: Math.random()*10,
+      title,
+      definition
+    }
+    setDatas([...datas,newData])
+  }
+
   return (
     <div className='mx-auto text-center'>
       <h1>Quizzi</h1>
       <p>Create and study flashcards easily</p>
-       <NavMenu/>
+       <NavMenu addFlashcard={addFlashcard}/>
        
       <div className="container mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
        {
