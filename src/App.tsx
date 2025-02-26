@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Flashcard from './components/Flashcard';
 import NavMenu from './components/NavMenu';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
+import EditModal from './components/EditModal';
+import Nav from './components/Navigation/Nav';
 
 
 const App = () => {
@@ -44,15 +46,20 @@ const App = () => {
   }
 
   return (
-    <div className='mx-auto text-center'>
+    <div className='mx-auto text-center bg-gray-100 min-h-screen'>
       <h1>Quizzi</h1>
       <p>Create and study flashcards easily</p>
        <NavMenu addFlashcard={addFlashcard}/>
-       
+       <Nav/>
       <div className="container mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
        {
         datas.map((data)=>{
-         return(<Flashcard key={data.id} id={data.id} title={data.title} updateFlashcard={updateFlashcard} definition={data.definition}/>) 
+         const editModal= <EditModal 
+         title={data.title} 
+         id={data.id} 
+         updateFlashcard={updateFlashcard}
+         />
+         return(<Flashcard key={data.id} id={data.id} title={data.title} updateFlashcard={updateFlashcard} definition={data.definition} editModal={editModal}/>) 
         })
        }
       </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { MdModeEditOutline } from "react-icons/md";
+
 
 function EditModal(props) {
   const [title,setTitle]= useState(props.title)
@@ -15,7 +15,7 @@ function EditModal(props) {
   return (
     <>
       <Button onClick={handleShow}>
-      <MdModeEditOutline/>
+        Edit
       </Button>
 
       <Modal
