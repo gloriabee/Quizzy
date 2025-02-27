@@ -7,15 +7,15 @@ import Router from "./pages/router";
 const App = () => {
 
   return (
-    <>
+    <div>
         
         <BrowserRouter>
-        <Nav/>
+          <Nav/>
           <Router/>
         </BrowserRouter>
        
       
-    </>
+    </div>
      
       
     
